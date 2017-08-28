@@ -11,6 +11,7 @@ __apache_packages:
   - apache2
   - openssh
 
+apache_conf_file: '{{ apache_server_root }}/listen.conf'
 apache_ports_configuration_items:
   - regexp: "^Listen "
     line: "Listen {{ apache_listen_port }}"
