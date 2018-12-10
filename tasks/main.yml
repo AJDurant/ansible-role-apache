@@ -59,6 +59,11 @@
       {% if item.listenport is defined and apache_listen_port != item.listenport %}\
 {{ return() }}Listen {{ item.listenport }}\
       {% endif %}\
+    {% endfor %}
+    {% for item in apache_vhosts_ssl %}\
+      {% if item.listenport is defined and apache_listen_port_ssl != item.listenport %}\
+{{ return() }}Listen {{ item.listenport }}\
+      {% endif %}\
     {% endfor %}"
     owner: root
     group: root
