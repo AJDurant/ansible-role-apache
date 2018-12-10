@@ -12,6 +12,7 @@ __apache_packages:
   - web/server/apache-24/module/apache-ssl
   - web/server/apache-24/module/apache-security
 
+apache_conf_file: '{{ apache_server_root }}/{{ apache_daemon }}.conf'
 apache_ports_configuration_items:
   - regexp: "^Listen "
     line: "Listen {{ apache_listen_port }}"
