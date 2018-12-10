@@ -9,7 +9,7 @@ __apache_packages:
   - apache2
   - apache2-utils
 
-apache_conf_file: '{{ apache_server_root }}/ports.conf'
+apache_ports_conf_file: '{{ apache_server_root }}/ports.conf'
 apache_ports_configuration_items:
   - regexp: "^Listen "
     line: "Listen {{ apache_listen_port }}"

@@ -38,7 +38,7 @@
 
 - name: Configure Apache.
   lineinfile:
-    dest: "{{ apache_conf_file }}"
+    dest: "{{ apache_ports_conf_file }}"
     regexp: "{{ item.regexp }}"
     line: "{{ item.line }}"
     state: present
@@ -51,7 +51,7 @@
 
 - name: Configure Apache (Add listen port for every vhost).
   blockinfile:
-    dest: "{{ apache_conf_file }}"
+    dest: "{{ apache_ports_conf_file }}"
     insertafter: "^Listen {{ apache_listen_port }}"
     block: "\
     {% set return = joiner(\"\\n\") %}\

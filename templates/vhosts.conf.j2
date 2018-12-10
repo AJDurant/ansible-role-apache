@@ -36,7 +36,7 @@
 {# Set up SSL VirtualHosts #}
 {% for vhost in apache_vhosts_ssl %}
 {% if apache_ignore_missing_ssl_certificate or apache_ssl_certificates.results[loop.index0].stat.exists %}
-<VirtualHost {{ apache_listen_ip }}:{{ apache_listen_port_ssl }}>
+<VirtualHost {{ apache_listen_ip }}:{% if vhost.listenport is defined %}{{ vhost.listenport }}{% else %}{{ apache_listen_port_ssl }}{% endif %}>
   ServerName {{ vhost.servername }}
 {% if vhost.serveralias is defined %}
   ServerAlias {{ vhost.serveralias }}

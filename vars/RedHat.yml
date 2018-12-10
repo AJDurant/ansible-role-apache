@@ -13,7 +13,7 @@ __apache_packages:
   - mod_ssl
   - openssh
 
-apache_conf_file: '{{ apache_server_root }}/conf/{{ apache_daemon }}.conf'
+apache_ports_conf_file: '{{ apache_server_root }}/conf/{{ apache_daemon }}.conf'
 apache_ports_configuration_items:
   - regexp: "^Listen "
     line: "Listen {{ apache_listen_port }}"
